@@ -8,8 +8,8 @@ let item_style = {
     backgroundColor: "aquamarine",
     margin : "10px",
     padding : "20px",
-    display : "flex" ,
-    flexDirection :"column"
+    display : "block" ,
+   
    }  
 
 function Home() {
@@ -17,8 +17,10 @@ function Home() {
     const loading = useSelector((state)=>state.data.loading);
     const data1 = useSelector((state)=>state.data.data);
     const error = useSelector((state)=>state.data.error);
-  
+    
     const dispatch =useDispatch();
+
+    
   
     useEffect(() => {
      dispatch(fetchData1())
@@ -30,14 +32,17 @@ function Home() {
     if (error) {
       return <h1> Error </h1>
     }
+  
+   
   return (
     <div>
-     <h1>All items</h1>
+     <h1 style={{textAlign:"center"}}>All items</h1>
       {
         data1.map((products)=> <div key={products.id} style={item_style} >
            <h2> {products.title}  </h2>
            <p> {products.thumbnail} </p>
            <p>{products.price}</p>
+           <button > Add to cart </button>
         </div>)
       }
     

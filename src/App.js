@@ -10,11 +10,13 @@ function App() {
 
   return (
     <div >
-    <NavLink to= 'Home'>Home </NavLink> &nbsp;
-    <NavLink to= 'mycartpage'> My Cart Page </NavLink>
-    
+    <nav style={{backgroundColor:"black",height: "40px", textAlign:"center",padding:"20px"}}>
+    <NavLink style={{ alignItems : "left",color : "white",marginLeft:"20px"}}to ='mycartpage' >Shopping Cart</NavLink>
+    <NavLink style={{backgroundColor : "black",color : "white", marginLeft:"1150px" }} to = ''>Home </NavLink> 
+    <NavLink style={{backgroundColor : "black",color : "white",marginLeft:"50px"}} to = 'mycartpage'> My Cart Page </NavLink>
+    </nav>
      <Routes >
-      <Route path='/' element = { <Home /> } ></Route>
+      <Route path='/' element = { <Home  /> } ></Route>
       <Route path = "/mycartpage" element = { <MyCartPage />} ></Route>
      </Routes>
  
