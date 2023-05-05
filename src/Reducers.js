@@ -1,11 +1,11 @@
-import { FETCH_DATA1_REQUEST,FETCH_DATA1_SUCCESS,FETCH_DATA1_ERROR } from "./ActionType1";
+import { FETCH_DATA1_REQUEST,FETCH_DATA1_SUCCESS,FETCH_DATA1_ERROR, ADD_TO_CART, REMOVE_FROM_CART } from "./ActionType1";
 import {combineReducers} from 'redux';
 
 const initialState ={
     loading : true,
     data :[],
-    error : ""
-
+    error : "",
+    cartData :[]
 }
 
 const data1Reducer = (state= initialState,action ) => {
@@ -24,6 +24,13 @@ switch(action.type) {
                 loading : false,
                 error : action.payload
               }  
+    case ADD_TO_CART : return {
+        ...state,
+        cartData: [...state.cartData, action.payload]
+    } 
+    case REMOVE_FROM_CART : return {...state,
+                                    cartData : state.cartData.filter(item => item !== action.payload)
+    }
     default : return state                             
 
 }
